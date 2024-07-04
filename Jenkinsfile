@@ -4,6 +4,8 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'flask-app-image'
         DOCKER_CONTAINER = 'flask-app-container'
+        HOST_PORT = '5000'
+        CONTAINER_PORT = '5000'
     }
 
     stages {
@@ -24,7 +26,7 @@ pipeline {
             steps {
                 script {
                     echo "Creating Docker container..."
-                    sh 'docker run -d --name ${DOCKER_CONTAINER} ${DOCKER_IMAGE}'
+                    sh 'docker run -d -p ${HOST_PORT}:${CONTAINER_PORT} --name ${DOCKER_CONTAINER} ${DOCKER_IMAGE}'
                 }
             }
         }
