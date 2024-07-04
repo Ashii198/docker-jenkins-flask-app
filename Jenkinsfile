@@ -39,16 +39,4 @@ pipeline {
             }
         }
     }
-
-    post {
-        always {
-            script {
-                echo "Cleaning up Docker container..."
-                sh 'docker stop ${DOCKER_CONTAINER} || true'
-                sh 'docker rm ${DOCKER_CONTAINER} || true'
-                echo "Cleaning up Docker image..."
-                sh 'docker rmi ${DOCKER_IMAGE} || true'
-            }
-        }
-    }
 }
