@@ -32,7 +32,7 @@ pipeline {
             steps {
                 script {
                     echo "Accessing Docker container..."
-                    sh 'docker exec -it ${DOCKER_CONTAINER} /bin/sh'
+                    ssh 'docker exec ${DOCKER_CONTAINER} /bin/sh -c "echo Container accessed"'
                 }
             }
         }
