@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'flask-app-image'
         DOCKER_CONTAINER = 'flask-app-container'
-        HOST_PORT = '8081'
+        HOST_PORT = '5000'
         CONTAINER_PORT = '5000'
     }
 
